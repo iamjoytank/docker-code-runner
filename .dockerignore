@@ -1,0 +1,10 @@
+# .dockerignore
+node_modules
+npm-debug.log
+Dockerfile
+docker-compose.yml
+.git
+.gitignore
+.env
+code # Exclude the dynamically generated code directory if it's inside your project root
+*.out # Exclude compiled outputs if they end up in project root
