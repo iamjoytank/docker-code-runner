@@ -154,12 +154,14 @@ app.get('/results/:jobId', async (req, res) => {
 			case 'completed':
 				// Access the return value (stdout) saved when the worker promise resolved
 				response.output = job.returnvalue;
+				response.message = `Job ID ${jobId} completed`;
 				console.log(chalk.green(`Job ID ${jobId} completed. Returning output.`));
 				res.json(response);
 				break;
 			case 'failed':
 				// Access the reason the job failed (error message)
 				response.error = job.failedReason;
+				response.message = `Job ID ${jobId} failed execution`;
 				console.log(chalk.red(`Job ID ${jobId} failed. Returning error.`));
 				// Still return 200 OK because the *request* to get the status succeeded
 				res.json(response);
